@@ -1,3 +1,5 @@
+<img alt="vomit jargon: cutting the crap, explain like I'm 5" src=".github/brand/banner.png">
+
 # Word Vomit Jargon
 
 A Claude Code skill that turns your agent's jargon-heavy updates into five short, plain lines you can actually learn from. Explain-like-I'm-5 words, under 600 characters, always ending in one clear next step.
