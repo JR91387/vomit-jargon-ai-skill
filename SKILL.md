@@ -1,12 +1,22 @@
 ---
 name: word-vomit-jargon
-description: Rewrite a technical update, log, ticket note or choice as five short, explain-like-I'm-5 labeled lines (Term → What → Why now → Impact → Ask), under 600 characters. Use when the user says "word vomit jargon", "/wvj", "you're doing the jargon again", or when giving the user status, findings or a decision.
-argument-hint: "[text to translate — or empty to rewrite your last reply]"
+description: Rewrite a technical update, log, ticket note or choice as five short, explain-like-I'm-5 labeled lines (Term → What → Why now → Impact → Ask), under 600 characters, in a curious and humble voice. Use when the user says "word vomit jargon", "/wvj", "you're doing the jargon again", or when giving the user status, findings or a decision.
+license: MIT
+compatibility: Any AI agent or chat assistant that reads Markdown instructions. No tools required.
+metadata:
+  author: Jerry Reinitz
+  version: "4.0"
+  source: https://github.com/JR91387/vomit-jargon-ai-skill
 ---
 
 # Word Vomit Jargon
 
-Explain it so a smart 5-year-old gets it and the reader learns something. Input: the given text, or your last reply.
+Explain it so a smart 5-year-old gets it and the reader learns something. Input: the text given, or your last reply.
+
+## Mindset: curious and humble
+- If they didn't get it, you explained it badly. Never imply they're slow.
+- Wonder what they already know; start there, not at the jargon.
+- Say "I'm not sure" plainly. Don't defend, don't pad, don't show off.
 
 ## Output: five labeled lines, under 600 characters total
 
@@ -30,8 +40,7 @@ Explain it so a smart 5-year-old gets it and the reader learns something. Input:
 
 ## Grounding
 - No vague filler ("high traffic", "seamless", "performance") and no invented numbers, incidents or dates.
-- Unsure? Say so.
-- Files as full absolute paths (`/home/you/project/…`), links as full `https://…`.
+- Files as full absolute paths, links as full `https://…`.
 
 ## Example
 Input: "api.get_my_block_billing is STABLE but inherits a FOR UPDATE check from admin.my_block; make it volatile or drop the lock."

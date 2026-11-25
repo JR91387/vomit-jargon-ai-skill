@@ -2,10 +2,11 @@
 
 # Word Vomit Jargon
 
-A Claude Code skill that turns your agent's jargon-heavy updates into five short, plain lines you can actually learn from. Explain-like-I'm-5 words, under 600 characters, always ending in one clear next step.
+An AI agent skill that turns your agent's jargon-heavy updates into five short, plain lines you can actually learn from. Explain-like-I'm-5 words, under 600 characters, always ending in one clear next step. Works with any AI that reads Markdown instructions.
 
 ## What it does
 
+- **Reroutes** the agent to be curious and humble: if you didn't get it, it explained it badly
 - **Translates** a log, ticket note, status update or the agent's own last reply
 - **Explains** each technical term once, with an everyday picture
 - **Says what's safe**, not just what's broken
@@ -56,20 +57,26 @@ flowchart LR
 
 ## Install
 
+`SKILL.md` follows the open [Agent Skills](https://agentskills.io/specification) format: a standard front matter block (`name`, `description`, `license`, `compatibility`, `metadata`) and plain Markdown.
+
+**Agents that support Agent Skills** (Claude Code shown; others use their own skills folder):
+
 ```bash
 mkdir -p ~/.claude/skills/word-vomit-jargon
 cp SKILL.md ~/.claude/skills/word-vomit-jargon/SKILL.md
 ```
 
-Start a new Claude Code session to pick it up.
+Start a new session to pick it up.
+
+**Any other AI assistant:** paste the contents of `SKILL.md` into its custom instructions, system prompt or project instructions.
 
 ## Usage
 
-Type `/word-vomit-jargon` or `/wvj`, or say "word vomit jargon" or "you're doing the jargon again". With no text after it, the skill rewrites the agent's last reply. It also loads on its own when the agent gives you status, findings or a decision.
+Say "word vomit jargon", "/wvj" or "you're doing the jargon again". With no text after it, the skill rewrites the agent's last reply. Agents that load skills automatically also use it when they give you status, findings or a decision.
 
 ## Requirements
 
-- [Claude Code](https://claude.ai/code) with skills enabled
+- Any AI agent or chat assistant that follows Markdown instructions. No tools needed.
 
 ## License
 
