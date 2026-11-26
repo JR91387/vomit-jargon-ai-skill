@@ -2,19 +2,19 @@
 
 # Word Vomit Jargon
 
-An AI agent skill that turns your agent's jargon-heavy updates into five short, plain lines you can actually learn from. Explain-like-I'm-5 words, under 600 characters, always ending in one clear next step. Works with any AI that reads Markdown instructions.
+An AI agent skill that turns your agent's jargon-heavy updates into T-SBAR: five short, plain lines you can actually learn from. Explain-like-I'm-5 words, under 600 characters, always ending in one clear next step. Works with any AI that reads Markdown instructions.
 
 ## What it does
 
 - **Reroutes** the agent to be curious and humble: if you didn't get it, it explained it badly
 - **Translates** a log, ticket note, status update or the agent's own last reply
-- **Explains** each technical term once, with an everyday picture
+- **Explains** up to three key terms once, each with an everyday picture
 - **Says what's safe**, not just what's broken
-- **Ends with one ask** so you know what to do next
+- **Ends with one recommendation** so you know what to do next
 
 ```mermaid
 flowchart LR
-  A(["Jargon"]) --> B[Term] --> C[What] --> D[Why now] --> E[Impact] --> F([Ask])
+  A(["Jargon"]) --> B[Terms] --> C[Situation] --> D[Background] --> E[Assessment] --> F([Recommendation])
 ```
 
 ## Before / after
@@ -25,11 +25,11 @@ flowchart LR
 > api.get_my_block_billing is STABLE but inherits a FOR UPDATE ownership check from admin.my_block, which causes lock contention in read-only transactions. Make it VOLATILE or drop the lock, then audit other STABLE callers.
 
 **After**
-> **Term:** `api.get_my_block_billing`, a database function.<br>
-> **What:** It shows a building's bill and promises to only look, never touch.<br>
-> **Why now:** It asks for a "do not touch" sign on the row, which a look-only job can't hold.<br>
-> **Impact:** It fails every time; landlords miss renewal dates. No data lost.<br>
-> **Ask:** Give it a look-only ownership check.
+> **Terms:** `api.get_my_block_billing`, a database function · a lock, a "do not touch" sign on a row.<br>
+> **Situation:** It shows a building's bill and promises to only look, never touch.<br>
+> **Background:** It asks for a lock anyway, which a look-only job can't hold.<br>
+> **Assessment:** It fails every time; landlords miss renewal dates. No data lost.<br>
+> **Recommendation:** Give it a look-only ownership check.
 
 ### Security alerts
 
@@ -37,11 +37,11 @@ flowchart LR
 > Dependabot flagged 8 vulns: 6 in devalue (transitive via SvelteKit, fix in PR #24), 1 each in source-map-js and cookie (devDependencies, no patch yet). Prod bundle not exposed.
 
 **After**
-> **Term:** 8 Dependabot alerts (GitHub's robot that spots risky code libraries).<br>
-> **What:** Borrowed code bits our website is built from have known weak spots.<br>
-> **Why now:** Six are in one bit called `devalue`; two are tools used only while building.<br>
-> **Impact:** Visitors never touch that code. The live site is safe.<br>
-> **Ask:** Merge PR #24, then update the other two by hand.
+> **Terms:** Dependabot, GitHub's robot that spots risky code libraries · `devalue`, one of those libraries.<br>
+> **Situation:** 8 alerts: borrowed code our website is built from has known weak spots.<br>
+> **Background:** Six are in `devalue`; two are tools used only while building.<br>
+> **Assessment:** Visitors never touch that code. The live site is safe.<br>
+> **Recommendation:** Merge PR #24, then update the other two by hand.
 
 ### Full disk
 
@@ -49,11 +49,11 @@ flowchart LR
 > Root FS at 97% due to Docker build cache and dangling layers; builds failing with ENOSPC. Recommend scoped builder prune and relocating data-root.
 
 **After**
-> **Term:** The computer's main disk.<br>
-> **What:** It's like a closet; Docker (a tool that builds apps in boxes) keeps leftover boxes there.<br>
-> **Why now:** The closet is 97% full, so new builds fail with "no space left".<br>
-> **Impact:** New builds stop. Running apps and saved files are fine.<br>
-> **Ask:** Clear out Docker's old build leftovers.
+> **Terms:** main disk, the computer's closet · Docker, a tool that builds apps in boxes.<br>
+> **Situation:** Docker keeps its leftover boxes in the closet.<br>
+> **Background:** The closet is 97% full, so new builds fail with "no space left".<br>
+> **Assessment:** New builds stop. Running apps and saved files are fine.<br>
+> **Recommendation:** Clear out Docker's old build leftovers.
 
 ## Install
 
