@@ -19,6 +19,18 @@ flowchart LR
 
 ## Before / after
 
+### Transcript retry (the Skill Saturday video example)
+
+**Before**
+> Retry path shipped: `n_seg < RETRY_MIN_SEGMENTS` (3) ⇒ skip retry, fall through to raw Whisper text on first merge-validation fail (any paraphrase Δ trips the 12% drift guard, so retry is non-convergent). Per-retry cost cap $0.02 enforced via `max_tokens` (~4.5k tok at $4.44/M out). Untested in prod; re-running is a no-op (idempotent, segments cached).
+
+**After**
+> **Terms:** retry, a second try at cleaning up a transcript · segment, one short chunk of speech · fallback, keeping the raw words.<br>
+> **Situation:** Failed cleanups now get one more try, except on really short clips.<br>
+> **Background:** Those retries cost money and usually failed anyway.<br>
+> **Assessment:** Cheaper runs, capped at two cents a try. A few short clips keep rougher words; nothing is lost.<br>
+> **Recommendation:** Watch the next run. It's the first real test.
+
 ### Database lock
 
 **Before**
