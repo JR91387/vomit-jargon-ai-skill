@@ -1,4 +1,4 @@
-<img alt="vomit jargon: shell-speak in, kid-speak out" src=".github/brand/banner_v6.png">
+<img alt="vomit jargon: shell-speak in, kid-speak out" src=".github/brand/banner_v7.png">
 
 # Word Vomit Jargon
 
